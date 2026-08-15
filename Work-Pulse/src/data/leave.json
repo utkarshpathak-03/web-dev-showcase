@@ -1,0 +1,62 @@
+[
+    {
+        "employeeName": "John Doe",
+        "leaveType": "Sick Leave",
+        "date": "2023-10-15",
+        "status": "Pending"
+    },
+    {
+        "employeeName": "Jane Smith",
+        "leaveType": "Vacation Leave",
+        "date": "2023-10-20",
+        "status": "Approved"
+    },
+    {
+        "employeeName": "Michael Johnson",
+        "leaveType": "Maternity Leave",
+        "date": "2023-11-01",
+        "status": "Pending"
+    },
+    {
+        "employeeName": "Emily Davis",
+        "leaveType": "Paternity Leave",
+        "date": "2023-11-05",
+        "status": "Rejected"
+    },
+    {
+        "employeeName": "William Brown",
+        "leaveType": "Sick Leave",
+        "date": "2023-11-10",
+        "status": "Approved"
+    },
+    {
+        "employeeName": "John Doe",
+        "leaveType": "Sick Leave",
+        "date": "2023-10-15",
+        "status": "Pending"
+    },
+    {
+        "employeeName": "Jane Smith",
+        "leaveType": "Vacation Leave",
+        "date": "2023-10-20",
+        "status": "Approved"
+    },
+    {
+        "employeeName": "Michael jackson",
+        "leaveType": "Paternity Leave",
+        "date": "2023-11-01",
+        "status": "Pending"
+    },
+    {
+        "employeeName": "Emily Davis",
+        "leaveType": "Maternity Leave",
+        "date": "2025-11-05",
+        "status": "Approved"
+    },
+    {
+        "employeeName": "William dow",
+        "leaveType": "Sick Leave",
+        "date": "2025-11-10",
+        "status": "Approved"
+    }
+]
