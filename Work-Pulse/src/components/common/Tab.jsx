@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-export default function Tab({ tabLength = 3, data = ['On Leave', 'Active', 'On Boarding'], TabData }) {
-    const [activeTab, setActiveTab] = useState(data[0]);
+export default function Tab({ data = ['On Leave', 'Active', 'On Boarding'], TabData }) {
+    const [activeTab, setActiveTabular] = useState(data[0]);
     console.log(activeTab, 'activeTab');
 
     return (
@@ -11,7 +11,7 @@ export default function Tab({ tabLength = 3, data = ['On Leave', 'Active', 'On B
                     {data.map((tabData, index) => {
                         return (
                             <li key={index} className={`text-center p-1  rounded min-w-16 h-7 text-xs ${activeTab === tabData ? "bg-[#2561E9] text-white" : "bg-transparent text-slate-500"}   hover:bg-[#2561E9] hover:text-[#fff] cursor-pointer`}
-                                onClick={() => setActiveTab(tabData)}>{tabData}</li>
+                                onClick={() => setActiveTabular(tabData)}>{tabData}</li>
                         )
                     })}
                 </ul>
