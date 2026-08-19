@@ -9,7 +9,7 @@ export const portfolioData = {
       "ReactJS developer with 6.5+ years building secure, high-performance, accessible banking and enterprise web applications. I have shipped production systems for ANZ, Samsung SDS, and IBM — specializing in Next.js, TypeScript, web performance, and WCAG accessibility.",
     socials: {
       linkedin: "https://linkedin.com/in/utkarsh-pathak-543003153",
-      github: "https://github.com",
+      github: "https://github.com/utkarshpathak-03",
       email: "mailto:utkarshpathak03@gmail.com",
     },
     resume: "https://drive.google.com/file/d/1_itNNToFYy4y5wyMfolZndcqul59TECd/view?usp=sharing",
