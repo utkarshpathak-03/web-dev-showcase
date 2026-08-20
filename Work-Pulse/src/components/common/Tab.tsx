@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-export default function Tab({ data = ['On Leave', 'Active', 'On Boarding'], TabData }) {
-    const [activeTab, setActiveTabular] = useState(data[0]);
+interface TabProps {
+    data: string[];
+    TabData: any;
+}
+
+export default function Tab({ data = ['On Leave', 'Active', 'On Boarding'], TabData }: TabProps) {
+    const [activeTab, setActiveTabular] = useState<string>(data[0]);
     console.log(activeTab, 'activeTab');
 
     return (
@@ -18,7 +23,7 @@ export default function Tab({ data = ['On Leave', 'Active', 'On Boarding'], TabD
             </div>
             <div className=''>
                 <ul className='p-2 flex flex-col'>
-                    {activeTab === 'On Leave' && TabData.onLeave.map((item) => {
+                    {activeTab === 'On Leave' && TabData.onLeave.map((item: any) => {
                         return (
                             <li key={item.id} className="flex gap-2 items-center p-2 border-b border-[#EFEFEF]">
                                 <img src={item.avatar} alt={item.name} className='h-10 w-10 border-radius rounded' />
@@ -29,7 +34,7 @@ export default function Tab({ data = ['On Leave', 'Active', 'On Boarding'], TabD
                             </li>
                         )
                     })}
-                    {activeTab === 'Active' && TabData.Active.map((item) => {
+                    {activeTab === 'Active' && TabData.Active.map((item: any) => {
                         return (
                             <li key={item.id} className="flex gap-2 items-center p-2 border-b border-[#EFEFEF]">
                                 <img src={item.avatar} alt={item.name} className='h-10 w-10 border-radius rounded' />
@@ -40,7 +45,7 @@ export default function Tab({ data = ['On Leave', 'Active', 'On Boarding'], TabD
                             </li>
                         )
                     })}
-                    {activeTab === 'On Boarding' && TabData.onLeave.map((item) => {
+                    {activeTab === 'On Boarding' && TabData.onLeave.map((item: any) => {
                         return (
                             <li key={item.id} className="flex gap-2 items-center p-2 border-b border-[#EFEFEF]">
                                 <img src={item.avatar} alt={item.name} className='h-10 w-10 border-radius rounded' />

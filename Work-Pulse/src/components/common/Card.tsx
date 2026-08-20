@@ -1,7 +1,21 @@
-import React from "react";
-import { MoveRight } from "lucide-react"
-import Tooltip from "./Tooltip";
-export default function Card({ title, svgIconPath, dataInsights, footerData, clickHandler }) {
+import { MoveRight, LucideIcon } from "lucide-react"
+import Tooltip from "./Tooltip.tsx";
+
+interface DataInsights {
+    data: string;
+    val: string;
+    type: 'increase' | 'decrease' | 'nochange';
+}
+
+interface CardArrProps {
+    title: string;
+    svgIconPath: LucideIcon;
+    dataInsights: DataInsights;
+    footerData: string;
+    clickHandler: () => void;
+}
+
+export default function Card({ title, svgIconPath, dataInsights, footerData, clickHandler }: CardArrProps) {
     const Icon = svgIconPath
     return (
         <div className="flex flex-col my-2 border border-[#EFEFEF] rounded bg-[#FFF] flex-1  min-w-[250px] min-h-[125px] max-w-[300px] max-h-[150px]">
@@ -14,7 +28,7 @@ export default function Card({ title, svgIconPath, dataInsights, footerData, cli
                 </div>
                 <div className="flex flex-row items-center">
                     <h2 className="text-bold text-[28px]" dangerouslySetInnerHTML={{ __html: dataInsights.data }} />
-                    <Tooltip val={dataInsights.val} type={dataInsights.type} />
+                    <Tooltip val={dataInsights.val} type={dataInsights.type} table={false} />
                 </div>
             </div>
             <div className="bg-[#F7F7F7] flex flex-row justify-between p-2 text-[#828284] items-center">

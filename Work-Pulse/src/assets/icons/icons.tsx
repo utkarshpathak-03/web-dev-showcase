@@ -1,4 +1,10 @@
-export default function WorkPulseLogo({ className = "w-7 h-8", color = "#3F6DF0" }) {
+import { SVGProps } from "react";
+interface WorkPulseLogoProps extends SVGProps<SVGSVGElement> {
+    className: string,
+    color: string
+}
+
+export default function WorkPulseLogo({ className = "w-7 h-8", color = "#3F6DF0", ...props }: WorkPulseLogoProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -9,6 +15,7 @@ export default function WorkPulseLogo({ className = "w-7 h-8", color = "#3F6DF0"
             strokeLinecap="round"
             strokeLinejoin="round"
             className={className}
+            {...props}
         >
             {/* The Work / Briefcase Frame */}
             <path d="M14 2H10a2 2 0 0 0-2 2v2h8V4a2 2 0 0 0-2-2z" fill="none" />

@@ -1,33 +1,48 @@
-import React from 'react';
 import Card from '../components/common/Card';
 import PageHeader from '../components/common/PageHeader';
 import { Users, BookPlus, Search, MoveRight } from "lucide-react"
 import TableComponent from '../components/common/TableComponent';
 import Tab from '../components/common/Tab';
-import tabData from "../data/TabData.js"
+import tabData from "../data/TabData"
+import { LucideIcon } from 'lucide-react';
+
+interface DataInsights {
+    data: string;
+    val: string;
+    type: 'increase' | 'decrease' | 'nochange';
+}
+
+interface CardArrProps {
+    title: string;
+    svgIconPath: LucideIcon;
+    dataInsights: DataInsights;
+    footerData: string;
+    clickHandler: () => void;
+}
 
 export default function Dashboard() {
     console.log(tabData, "Tab Data Fashboard");
-    const EmployeeDataObj = {
+
+    const EmployeeDataObj: DataInsights = {
         data: '128',
         val: '+12',
         type: 'increase',
     }
-    const LeaveDataObj = {
+    const LeaveDataObj: DataInsights = {
         data: '5',
         val: '28%',
         type: 'decrease',
     }
-    const PayrollDataObj = {
+    const PayrollDataObj: DataInsights = {
         data: '98 <span class="text-sm text-gray-500">/128</span>',
         val: '76%',
         type: 'nochange',
     }
-    const clickHandler = () => {
+    const clickHandler = (): void => {
         console.log("Card clicked");
     }
 
-    const cardArr = [
+    const cardArr: CardArrProps[] = [
         { title: "Total Employees", svgIconPath: Users, dataInsights: EmployeeDataObj, footerData: "Active: 121 &nbsp; Inactive: 7", clickHandler: clickHandler },
         { title: "Leave requests", svgIconPath: BookPlus, dataInsights: LeaveDataObj, footerData: "2 Fewer Request", clickHandler: clickHandler },
         { title: "Payroll Completion", svgIconPath: Users, dataInsights: PayrollDataObj, footerData: "30 Payment Remaining", clickHandler: clickHandler },
@@ -59,7 +74,7 @@ export default function Dashboard() {
                             See all <MoveRight size={16} />
                         </button>
                     </div>
-                    <Tab TabData={tabData} />
+                    <Tab data={['On Leave', 'Active', 'On Boarding']} TabData={tabData} />
                 </div>
             </div>
 

@@ -1,9 +1,17 @@
 import { Info, Dot } from 'lucide-react';
 
 
-export default function Tooltip({ val, type = '', table = false }) {
+export type TooltipType = 'increase' | 'decrease' | 'nochange' | '';
 
-    const finalizeText = () => {
+interface TooltipProps {
+    val: string;
+    type: TooltipType;
+    table: boolean;
+}
+
+export default function Tooltip({ val, type = '', table = false }: TooltipProps) {
+
+    const finalizeText = (): string => {
         if (type === 'increase') {
             return `${val} this month`
         } else if (type === 'decrease') {
@@ -12,7 +20,7 @@ export default function Tooltip({ val, type = '', table = false }) {
             return `${val} completed`
         }
     }
-    const finalizeColor = () => {
+    const finalizeColor = (): string => {
         if (type === 'increase') {
             return 'text-green-700 bg-[#EFFDF4]'
         } else if (type === 'decrease') {
@@ -22,7 +30,7 @@ export default function Tooltip({ val, type = '', table = false }) {
         }
     }
 
-    const finalizeColorForTable = () => {
+    const finalizeColorForTable = (): string => {
         if (val === 'Pending') {
             return 'text-yellow-700 bg-[#FEFBE9]'
         } else if (val === 'Approved') {

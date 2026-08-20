@@ -1,7 +1,7 @@
-import React from 'react'
 import { MoveRight } from 'lucide-react'
 import leave from '../../data/leave.json';
 import Tooltip from './Tooltip';
+
 
 export default function TableComponent() {
 
@@ -29,7 +29,7 @@ export default function TableComponent() {
                                     <td className='p-3 font-semibold'>{record.employeeName}</td>
                                     <td className='p-3 text-slate-400 font-light'>{record.leaveType}</td>
                                     <td className='p-3 text-slate-400 font-light'>{record.date}</td>
-                                    <td className='p-3 '>{<Tooltip val={record.status} table={true} />}</td>
+                                    <td className='p-3 '>{<Tooltip val={record.status} type='' table={true} />}</td>
                                     <td className='p-3 '>{record.status}</td>
                                 </tr>)
                         })

@@ -8,7 +8,22 @@ import man2 from "../assets/avatars/man-2.png";
 import man from "../assets/avatars/man.png";
 import woman1 from "../assets/avatars/woman-1.png";
 import woman from "../assets/avatars/woman.png";
-const tabData = {
+
+interface TabEmployee {
+    id: number;
+    name: string;
+    leaveFrom: string,
+    leaveTill: string,
+    avatar: string
+}
+
+interface TabEmployeeStructure {
+    onLeave: TabEmployee[];
+    Active: TabEmployee[];
+    OnBoarding: TabEmployee[];
+}
+
+const tabData: TabEmployeeStructure = {
     "onLeave": [
         {
             "id": 1,
