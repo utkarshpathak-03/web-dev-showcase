@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import Sidebar from "./Sidebar";
 import Header from './Header'
-import Dashboard from '../../pages/Dashboard'
 function AppLayout() {
     return (
         <div className="flex h-screen overflow-hidden">
