@@ -1,7 +1,14 @@
 import { currentWorkoutData, workoutHistoryData } from '../data/workoutData.js'
+import { useNavigate } from 'react-router-dom'
 import ListContainer from '../components/common/List.jsx'
 import superMeLogo from '../assets/superMeLogoCircular.png'
+
 function Dashboard() {
+
+    const navigate = useNavigate()
+    const buttonClickHandler = () => {
+        navigate('/history')
+    }
     return (
         <div className='flex flex-col gap-6'>
             <div>
@@ -25,9 +32,8 @@ function Dashboard() {
                         <span className='font-semibold text-lg mb-4 ml-2'>Workout History</span>
 
                         <ListContainer data={workoutHistoryData.slice(0, 3)} workoutHistory />
-                        <div className='flex justify-center items-center bg-[#F8F7FA] rounded-md border border-slate-200 text-xs h-10 mt-6'>
+                        <div onClick={buttonClickHandler} className='flex justify-center items-center bg-[#4C41CC] text-white rounded-md border border-slate-200 text-xs h-10 mt-6 hover:scale-101'>
                             <span>View All History</span>
-
                         </div>
                     </div>
                 </div>
