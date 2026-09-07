@@ -5,10 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 function Workouts() {
     const navigate = useNavigate();
-    // 1. Initialize state with mock data
     const [workoutData, setWorkoutData] = useState(currentWorkoutData);
 
-    // 2. Handlers to update state dynamically
     const handleNameChange = (e) => {
         setWorkoutData((prev) => ({
             ...prev,
@@ -46,7 +44,6 @@ function Workouts() {
     }
     return (
         <div className="flex flex-col border border-[#EFEFEF] rounded-xl bg-white overflow-y-auto max-h-[600px] p-6 shadow-sm max-w-4xl mx-auto text-slate-800">
-            {/* Header */}
             <div className="flex items-center gap-3 mb-1">
                 <div className="h-6 w-6 cursor-pointer flex items-center justify-center" onClick={handleBack}>
                     <ArrowLeft className="h-5 w-5 text-slate-600 hover:text-slate-900" />
@@ -55,9 +52,7 @@ function Workouts() {
             </div>
             <h2 className="text-sm text-slate-500 mb-6 pl-9">Modify your workout details below</h2>
 
-            {/* Form Content */}
             <div className="flex flex-col gap-4">
-                {/* Workout Name Field */}
                 <div>
                     <span className="text-xs font-semibold text-slate-700 block mb-1">Workout Name</span>
                     <input
@@ -69,7 +64,6 @@ function Workouts() {
                     />
                 </div>
 
-                {/* Exercises Section */}
                 <div>
                     <span className="text-xs font-semibold text-slate-700 block mb-3">Exercises</span>
                     <div className="flex flex-col gap-3">
@@ -78,7 +72,6 @@ function Workouts() {
                                 key={item.id}
                                 className="flex items-center justify-between border border-slate-100 rounded-lg p-3 bg-slate-50/50 hover:bg-slate-50 transition-colors"
                             >
-                                {/* Left: Exercise Image & Name */}
                                 <div className="flex items-center gap-3 min-w-[160px]">
                                     <img
                                         src={item.img}
@@ -88,7 +81,6 @@ function Workouts() {
                                     <span className="font-medium text-sm text-slate-800">{item.exercise}</span>
                                 </div>
 
-                                {/* Right: Controls (Sets, Reps, Weight, Delete) */}
                                 <div className="flex items-center gap-3">
                                     <div className="flex flex-col items-center">
                                         <span className="text-[10px] text-slate-500 font-medium">Sets</span>
