@@ -1,30 +1,35 @@
 import lateralRaise from '../assets/exerciseImages/lateralRaise.png'
-export const currentWorkoutData = [
-    {
-        category: 'Push Day',
-        exercise: 'Bench Press',
-        sets: 3,
-        reps: 8,
-        weight: '80Kg',
-        img: lateralRaise
-    },
-    {
-        category: 'Push Day',
-        exercise: 'Inclidne DB Press',
-        sets: 3,
-        reps: 10,
-        weight: '24Kg',
-        img: lateralRaise
-    },
-    {
-        category: 'Push Day',
-        exercise: 'Lateral Raise',
-        sets: 3,
-        reps: 15,
-        weight: '10kg',
-        img: lateralRaise
-    }
-]
+
+export const currentWorkoutData = {
+    id: "w-101",
+    workoutName: "Push Day",
+    exercises: [
+        {
+            id: "ex-1",
+            exercise: "Bench Press",
+            img: lateralRaise,
+            sets: 3,
+            reps: 8,
+            weight: 80
+        },
+        {
+            id: "ex-2",
+            exercise: "Incline DB Press",
+            img: lateralRaise,
+            sets: 3,
+            reps: 10,
+            weight: 24
+        },
+        {
+            id: "ex-3",
+            exercise: "Lateral Raise",
+            img: lateralRaise,
+            sets: 3,
+            reps: 15,
+            weight: 10
+        }
+    ]
+};
 export const workoutHistoryData = [
     {
         date: '2026-aug-28',

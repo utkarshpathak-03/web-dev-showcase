@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import superMelogo from '../../assets/superMeLogo.png'
 import { LayoutDashboard, Dumbbell, SportShoe, RotateCcwClock, ChartNoAxesCombined, Settings, Zap } from 'lucide-react'
 
 function Sidebar() {
+    const navigate = useNavigate()
 
-    const [activeItem, setActiveItem] = useState('/')
+    const [activeItem, setActiveItem] = useState('Dashboard')
     const menuItems = [
         { name: "Dashboard", icon: LayoutDashboard, path: "/" },
         { name: "Workouts", icon: Dumbbell, path: "/workouts" },
@@ -20,7 +21,7 @@ function Sidebar() {
     return (
         <div className='w-60 h-screen flex flex-col justify-between py-5 px-6 items-center bg-sidebar-bg text-white'>
             <div className=" flex flex-col">
-                <div className='flex items-center gap-4 mb-8 cursor-pointer'>
+                <div className='flex items-center gap-4 mb-8 cursor-pointer' onClick={() => navigate('/')}>
                     <img src={superMelogo} alt="SuperMe" className='h-10 rounded-lg rounded-r-md' />
                     <span className="text-2xl font-bold">SuperMe</span>
                 </div>
