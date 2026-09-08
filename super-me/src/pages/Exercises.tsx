@@ -1,25 +1,33 @@
 
 import { Search, Plus } from "lucide-react";
-import { useState } from "react";
-import List from "../components/common/List.jsx";
-import { exercises } from '../data/workoutData.js'
+import { useState, ChangeEvent } from "react";
+import List from "../components/common/List";
+import { exercises } from '../data/workoutData'
+interface Tab {
+    id: string;
+    label: string
+}
 function Exercises() {
-    const [searchQuery, setSearchQuery] = useState('Search exercises...')
-    const setSearchHandler = (querry) => {
-        setSearchQuery(querry)
-    }
-    const [activeTab, setActiveTab] = useState('All')
-    const tabs = [
+    const [searchQuery, setSearchQuery] = useState<string>('')
+    const [activeTab, setActiveTab] = useState<string>('All')
+    const tabs: Tab[] = [
         { id: 'tab1', label: 'All' },
         { id: 'tab2', label: 'Push' },
         { id: 'tab3', label: 'Pull' },
         { id: 'tab4', label: 'Legs' },
         { id: 'tab5', label: 'core' }
     ]
-    const setActiveTabHandler = (value) => {
+    const setSearchHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setSearchQuery(e.target.value)
+    }
+    const setActiveTabHandler = (value: string) => {
         setActiveTab(value)
     }
-
+    const filteredExercises = exercises.filter((ex) => {
+        const matchesSearch = ex.exercise?.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesTab = activeTab === 'All' || ex.category?.toLowerCase() === activeTab.toLowerCase();
+        return matchesSearch && matchesTab;
+    });
     return (
         <div className="flex flex-col border border-[#EFEFEF] rounded bg-white overflow-y-auto max-h-[600px] p-4">
             <h1 className='font-semibold text-lg mb-2 '>Exercise Library</h1>
@@ -30,7 +38,8 @@ function Exercises() {
                     <input
                         type="text"
                         value={searchQuery}
-                        onChange={(e) => setSearchHandler(e.target.value)}
+                        placeholder="Search exercises..."
+                        onChange={setSearchHandler}
                         className="w-full border h-9 border-gray-200 rounded-sm pl-8 text-sm text-gray-400"
                     />
                 </div>
@@ -49,7 +58,7 @@ function Exercises() {
                 })}
             </div>
             {/* <div className=" "> */}
-            <List data={exercises.slice(0, 6)} exerciseLib />
+            <List data={filteredExercises} exerciseLib />
             {/* </div> */}
         </div>
     )

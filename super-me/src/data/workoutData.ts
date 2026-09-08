@@ -32,6 +32,7 @@ export const currentWorkoutData = {
 };
 export const workoutHistoryData = [
     {
+        id: 1,
         date: '2026-aug-28',
         workout: 'Push',
         exercises: 3,
@@ -39,6 +40,7 @@ export const workoutHistoryData = [
         duration: '45 min'
     },
     {
+        id: 2,
         date: '2026-aug-28',
         workout: 'Push',
         exercises: 3,
@@ -46,6 +48,7 @@ export const workoutHistoryData = [
         duration: '45 min'
     },
     {
+        id: 3,
         date: '2026-aug-28',
         workout: 'Push',
         exercises: 3,
@@ -53,6 +56,7 @@ export const workoutHistoryData = [
         duration: '45 min'
     },
     {
+        id: 4,
         date: '2026-aug-28',
         workout: 'Push',
         exercises: 3,
@@ -60,6 +64,7 @@ export const workoutHistoryData = [
         duration: '45 min'
     },
     {
+        id: 5,
         date: '2026-aug-28',
         workout: 'Push',
         exercises: 3,
@@ -67,6 +72,7 @@ export const workoutHistoryData = [
         duration: '45 min'
     },
     {
+        id: 6,
         date: '2026-aug-28',
         workout: 'Push',
         exercises: 3,
@@ -74,6 +80,7 @@ export const workoutHistoryData = [
         duration: '45 min'
     },
     {
+        id: 7,
         date: '2026-aug-28',
         workout: 'Push',
         exercises: 3,
@@ -81,6 +88,7 @@ export const workoutHistoryData = [
         duration: '45 min'
     },
     {
+        id: 8,
         date: '2026-aug-28',
         workout: 'Push',
         exercises: 3,
@@ -88,6 +96,7 @@ export const workoutHistoryData = [
         duration: '45 min'
     },
     {
+        id: 9,
         date: '2026-aug-28',
         workout: 'Push',
         exercises: 3,
@@ -95,6 +104,7 @@ export const workoutHistoryData = [
         duration: '45 min'
     },
     {
+        id: 10,
         date: '2026-aug-28',
         workout: 'Push',
         exercises: 3,
@@ -102,6 +112,7 @@ export const workoutHistoryData = [
         duration: '45 min'
     },
     {
+        id: 11,
         date: '2026-aug-28',
         workout: 'Push',
         exercises: 3,
@@ -109,6 +120,7 @@ export const workoutHistoryData = [
         duration: '45 min'
     },
     {
+        id: 12,
         date: '2026-aug-28',
         workout: 'Push',
         exercises: 3,
@@ -211,21 +223,21 @@ export const exercises = [
         id: 'barbell-back-squat',
         exercise: 'Barbell Back Squat',
         muscleGroup: 'Legs',
-        category: 'Leg',
+        category: 'Legs',
         img: lateralRaise
     },
     {
         id: 'romanian-deadlift',
         exercise: 'Romanian Deadlift',
         muscleGroup: 'Legs',
-        category: 'Leg',
+        category: 'Legs',
         img: lateralRaise
     },
     {
         id: 'leg-press',
         exercise: 'Leg Press',
         muscleGroup: 'Legs',
-        category: 'Leg',
+        category: 'Legs',
         img: lateralRaise
     }
 ];

@@ -1,21 +1,24 @@
-import { currentWorkoutData, workoutHistoryData } from '../data/workoutData.js'
+import { currentWorkoutData, workoutHistoryData } from '../data/workoutData'
 import { useNavigate, useLocation } from 'react-router-dom'
-import ListContainer from '../components/common/List.jsx'
+import ListContainer from '../components/common/List'
 import superMeLogo from '../assets/superMeLogoCircular.png'
-import Alert from '../components/common/Alert.jsx'
+import Alert from '../components/common/Alert'
 import { useEffect, useState } from 'react'
 
+interface LocationState {
+    message?: string;
+}
 function Dashboard() {
 
     const navigate = useNavigate();
     const location = useLocation();
-    const message = location.state?.message || sessionStorage.getItem('message')
-    const [showAlert, setShowAlert] = useState(!!message);
+    const state = location.state as LocationState | null;
+    const message = state?.message || sessionStorage.getItem('message') || undefined
+    const [showAlert, setShowAlert] = useState<boolean>(!!message);
     const buttonClickHandler = () => {
         navigate('/history')
     }
     useEffect(() => {
-        // Clear session storage so the message doesn't persist forever on reload
         if (sessionStorage.getItem('message')) {
             sessionStorage.removeItem('message');
         }

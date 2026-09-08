@@ -1,20 +1,34 @@
 import { ArrowLeft, Trash2 } from 'lucide-react';
-import { useState } from 'react';
-import { currentWorkoutData } from '../data/workoutData.js';
+import { useState, ChangeEvent } from 'react';
+import { currentWorkoutData } from '../data/workoutData';
 import { useNavigate } from 'react-router-dom';
 
+interface Exercises {
+    id: string;
+    exercise: string;
+    img: string
+    sets: number
+    reps: number
+    weight: number
+}
+interface CurrentWorkoutData {
+    id: string;
+    workoutName: string;
+    exercises: Exercises[]
+}
 function Workouts() {
-    const navigate = useNavigate();
-    const [workoutData, setWorkoutData] = useState(currentWorkoutData);
 
-    const handleNameChange = (e) => {
+    const navigate = useNavigate();
+    const [workoutData, setWorkoutData] = useState<CurrentWorkoutData>(currentWorkoutData);
+
+    const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
         setWorkoutData((prev) => ({
             ...prev,
             workoutName: e.target.value
         }));
     };
 
-    const handleExerciseChange = (id, field, value) => {
+    const handleExerciseChange = (id: string, field: keyof Exercises, value: number) => {
         setWorkoutData((prev) => ({
             ...prev,
             exercises: prev.exercises.map((item) =>
@@ -23,7 +37,7 @@ function Workouts() {
         }));
     };
 
-    const handleDeleteExercise = (id) => {
+    const handleDeleteExercise = (id: string) => {
         setWorkoutData((prev) => ({
             ...prev,
             exercises: prev.exercises.filter((item) => item.id !== id)
@@ -87,7 +101,7 @@ function Workouts() {
                                         <input
                                             type="number"
                                             value={item.sets}
-                                            onChange={(e) => handleExerciseChange(item.id, 'sets', e.target.value)}
+                                            onChange={(e) => handleExerciseChange(item.id, 'sets', Number(e.target.value))}
                                             className="w-12 border border-slate-200 rounded-md p-1 text-center text-sm bg-white focus:outline-none focus:border-purple-500"
                                         />
                                     </div>
@@ -97,7 +111,7 @@ function Workouts() {
                                         <input
                                             type="number"
                                             value={item.reps}
-                                            onChange={(e) => handleExerciseChange(item.id, 'reps', e.target.value)}
+                                            onChange={(e) => handleExerciseChange(item.id, 'reps', Number(e.target.value))}
                                             className="w-12 border border-slate-200 rounded-md p-1 text-center text-sm bg-white focus:outline-none focus:border-purple-500"
                                         />
                                     </div>
@@ -107,7 +121,7 @@ function Workouts() {
                                         <input
                                             type="number"
                                             value={item.weight}
-                                            onChange={(e) => handleExerciseChange(item.id, 'weight', e.target.value)}
+                                            onChange={(e) => handleExerciseChange(item.id, 'weight', Number(e.target.value))}
                                             className="w-14 border border-slate-200 rounded-md p-1 text-center text-sm bg-white focus:outline-none focus:border-purple-500"
                                         />
                                     </div>

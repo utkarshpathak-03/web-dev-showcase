@@ -1,9 +1,24 @@
-import { useState } from 'react';
+import { useState, ChangeEvent, SyntheticEvent } from 'react';
 import { User, Mail, Scale, Ruler, Target, Save, Check } from 'lucide-react';
 import Alert from '../components/common/Alert';
 
+interface FormData {
+    name: string;
+    email: string;
+    bodyWeight: number;
+    height: number;
+    goal: string;
+}
+
+export type AlertType = 'success' | 'error' | 'warning' | 'info'
+
+interface AlertState {
+    show: boolean;
+    type: AlertType;
+    message: string;
+}
 function Settings() {
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<FormData>({
         name: 'Utkarsh Pathak',
         email: 'FatToFit@gmail.com',
         bodyWeight: 75,
@@ -11,15 +26,15 @@ function Settings() {
         goal: 'muscle_building'
     });
 
-    const [isSaved, setIsSaved] = useState(false);
+    const [isSaved, setIsSaved] = useState<boolean>(false);
 
-    const [alert, setAlert] = useState({
+    const [alert, setAlert] = useState<AlertState>({
         show: false,
         type: 'success',
         message: ''
     });
 
-    const handleChange = (e) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
@@ -27,14 +42,14 @@ function Settings() {
         }));
     };
 
-    const triggerAlert = (type, message) => {
+    const triggerAlert = (type: AlertType, message: string) => {
         setAlert({ show: true, type, message });
         setTimeout(() => {
             setAlert((prev) => ({ ...prev, show: false }));
         }, 3500);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (!formData.name.trim() || !formData.email.trim()) {

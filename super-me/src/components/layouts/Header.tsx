@@ -3,14 +3,14 @@ import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Header() {
-    const [isOpen, setIsOpen] = useState(false);
-    const dropdownRef = useRef(null);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const dropdownRef = useRef<HTMLDivElement | null>(null);
     const navigate = useNavigate();
 
     // Close dropdown when clicking outside of it
     useEffect(() => {
-        function handleClickOutside(event) {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        function handleClickOutside(event: MouseEvent) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
                 setIsOpen(false);
             }
         }
@@ -19,7 +19,7 @@ function Header() {
     }, []);
 
     // Helper to handle client-side routing & auto-close menu
-    const handleMenuClick = (path) => {
+    const handleMenuClick = (path: string) => {
         setIsOpen(false);
         navigate(path);
     };

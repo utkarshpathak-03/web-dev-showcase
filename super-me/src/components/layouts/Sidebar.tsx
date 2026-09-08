@@ -1,13 +1,18 @@
 import { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import superMelogo from '../../assets/superMeLogo.png'
-import { LayoutDashboard, Dumbbell, SportShoe, RotateCcwClock, ChartNoAxesCombined, Settings, Zap } from 'lucide-react'
+import { LayoutDashboard, Dumbbell, SportShoe, RotateCcwClock, ChartNoAxesCombined, Settings, Zap, LucideIcon } from 'lucide-react'
 
+interface MenuItems {
+    name: string;
+    icon: LucideIcon;
+    path: string;
+}
 function Sidebar() {
     const navigate = useNavigate()
 
-    const [activeItem, setActiveItem] = useState('Dashboard')
-    const menuItems = [
+    const [activeItem, setActiveItem] = useState<string>('Dashboard')
+    const menuItems: MenuItems[] = [
         { name: "Dashboard", icon: LayoutDashboard, path: "/" },
         { name: "Workouts", icon: Dumbbell, path: "/workouts" },
         { name: "Exercises", icon: SportShoe, path: "/exercises" },
@@ -15,7 +20,7 @@ function Sidebar() {
         { name: "Progress", icon: ChartNoAxesCombined, path: "/history" },
         { name: "Settings", icon: Settings, path: "/settings" }
     ]
-    const sidebarHandler = (active) => {
+    const sidebarHandler = (active: string) => {
         setActiveItem(active);
     }
     return (
@@ -26,10 +31,10 @@ function Sidebar() {
                     <span className="text-2xl font-bold">SuperMe</span>
                 </div>
                 <nav className="">
-                    {menuItems.map((item, index) => {
+                    {menuItems.map((item) => {
                         const ItemIcon = item.icon
                         return (
-                            <NavLink key={index} to={item.path} onClick={() => sidebarHandler(item.name)} className={`flex h-15 w-50 p-4 items-center gap-4 cursor-pointer rounded-lg ${activeItem === item.name ? 'bg-[#4C41CC]' : 'bg-transparent text-slate-300 hover:bg-accent-purple hover:text-slate-50 hover:rounded-lg'}  `} >
+                            <NavLink key={item.name} to={item.path} onClick={() => sidebarHandler(item.name)} className={`flex h-15 w-50 p-4 items-center gap-4 cursor-pointer rounded-lg ${activeItem === item.name ? 'bg-[#4C41CC]' : 'bg-transparent text-slate-300 hover:bg-accent-purple hover:text-slate-50 hover:rounded-lg'}  `} >
                                 <ItemIcon className='' />
                                 <span >{item.name}</span>
                             </NavLink>

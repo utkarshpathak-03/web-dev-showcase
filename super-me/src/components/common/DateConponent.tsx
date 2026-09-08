@@ -1,5 +1,8 @@
 
-function DateComponent({ date }) {
+interface DateComponentProps {
+    date?: string
+}
+function DateComponent({ date = '' }: DateComponentProps) {
     return (
         <div className="h-16 w-12 flex flex-col ">
             <span className="bg-[#6A52D6] text-white font-medium text-md text-center rounded-t-md">{date.substring(5, 8)}</span>

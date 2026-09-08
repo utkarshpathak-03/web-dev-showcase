@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import AppLayout from './components/layouts/AppLayout';
 import Dashboard from './pages/Dashboard';
-import History from './pages/History.jsx';
-import Settings from './pages/Settings.jsx';
-import Workouts from './pages/Workouts.jsx';
-import Exercises from './pages/Exercises.jsx';
+import History from './pages/History';
+import Settings from './pages/Settings';
+import Workouts from './pages/Workouts';
+import Exercises from './pages/Exercises';
 
 function App() {
   return (

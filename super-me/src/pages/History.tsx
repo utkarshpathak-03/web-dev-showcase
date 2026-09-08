@@ -1,5 +1,5 @@
 import { workoutHistoryData } from "../data/workoutData"
-import TableComp from '../components/common/TableComp.jsx'
+import TableComp from '../components/common/TableComp'
 
 function History() {
     return (
