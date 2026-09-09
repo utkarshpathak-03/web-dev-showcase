@@ -120,6 +120,17 @@ export const portfolioData = {
 
   projects: [
     {
+      title: "SuperMe",
+      tagline: "Your own personal workout tracker",
+      url: "https://super-me-app.vercel.app/",
+      details: [
+        "Built an interactive fitness dashboard to track workouts, exercises, sets, reps, and weights in one place.",
+        "Designed a clean, responsive UI for quickly viewing today'\s workout and historical training progress.",
+        "Built with React and TypeScript, focusing on reusable components, responsive layouts, and a smooth user experience.",
+      ],
+      tags: ["React", "Tailwind", "Javascript"],
+    },
+    {
       title: "Super IDE",
       tagline: "A browser-based code editor and development environment.",
       url: "https://super-ide.vercel.app",

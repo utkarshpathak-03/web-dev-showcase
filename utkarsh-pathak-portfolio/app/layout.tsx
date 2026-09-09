@@ -9,19 +9,18 @@ export const metadata: Metadata = {
   title: 'Utkarsh Pathak — Senior ReactJS / Next.js Developer',
   description:
     'Portfolio of Utkarsh Pathak, a Senior ReactJS & Next.js developer with 6.5+ years building secure, high-performance, accessible banking and enterprise web applications for ANZ, Samsung SDS, and IBM.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
+        url: '/utkarsh-profile-photo.jpeg',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon-dark-32x32.png',
+        url: '/utkarsh-profile-photo.jpeg',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/icon.svg',
+        url: 'utkarsh-profile-photo.jpeg',
         type: 'image/svg+xml',
       },
     ],
