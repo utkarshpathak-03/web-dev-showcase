@@ -57,7 +57,7 @@ function Workouts() {
         })
     }
     return (
-        <div className="flex flex-col border border-[#EFEFEF] rounded-xl bg-white overflow-y-auto max-h-[600px] p-6 shadow-sm max-w-4xl mx-auto text-slate-800">
+        <div className="flex flex-col border border-[#EFEFEF] rounded-xl bg-white overflow-y-auto max-h-150 p-6 shadow-sm max-w-4xl mx-auto text-slate-800">
             <div className="flex items-center gap-3 mb-1">
                 <div className="h-6 w-6 cursor-pointer flex items-center justify-center" onClick={handleBack}>
                     <ArrowLeft className="h-5 w-5 text-slate-600 hover:text-slate-900" />
@@ -86,7 +86,7 @@ function Workouts() {
                                 key={item.id}
                                 className="flex items-center justify-between border border-slate-100 rounded-lg p-3 bg-slate-50/50 hover:bg-slate-50 transition-colors"
                             >
-                                <div className="flex items-center gap-3 min-w-[160px]">
+                                <div className="flex items-center gap-3 min-w-40">
                                     <img
                                         src={item.img}
                                         alt={item.exercise}
