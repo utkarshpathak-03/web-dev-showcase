@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sidebar-bg: #111C26;
+  --color-sidebar-card: #151c2e;
+  --color-primary-purple: #5b4dff;
+  --color-accent-purple: #2D2D62;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: black;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
