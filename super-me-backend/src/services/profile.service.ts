@@ -3,7 +3,6 @@ import pool from "../config/db";
 export const getProfileData = async () => {
     const result = await pool.query(`
     SELECT
-      id,
       name,
       email,
       weight,
@@ -12,6 +11,10 @@ export const getProfileData = async () => {
     FROM users
     LIMIT 1
   `);
+
+    if (result.rows.length === 0) {
+        return null;
+    }
 
     const user = result.rows[0];
 
