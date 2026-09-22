@@ -9,3 +9,13 @@ export const exercisesQuerySchema = z.object({
 
     limit: z.coerce.number().int().positive().max(100).default(20)
 });
+
+export const createExerciseSchema = z.object({
+    name: z.string().trim().min(1),
+
+    muscleGroup: z.string().trim().min(1),
+
+    category: z.string().trim().min(1),
+
+    imageUrl: z.string().trim().optional()
+});
