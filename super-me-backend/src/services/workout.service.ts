@@ -328,5 +328,37 @@ export const updateCurrentSplitData = async ({
 };
 
 
+export const getWorkoutHistoryData = async () => {
+  const result = await pool.query(`
+    SELECT
+      w.id,
+      w.date,
+      w.category,
+      w.duration,
+      COUNT(we.id) AS exercise_count,
+      COALESCE(SUM(we.sets), 0) AS total_sets
+    FROM workouts w
+    LEFT JOIN workout_exercises we
+      ON w.id = we.workout_id
+    WHERE w.user_id = $1
+      AND w.date < CURRENT_DATE
+    GROUP BY
+      w.id,
+      w.date,
+      w.category,
+      w.duration
+    ORDER BY w.date DESC
+  `, [
+    "753c8de4-93f8-4f90-af51-ff0248fb70a9"
+  ]);
 
+  return result.rows.map((workout) => ({
+    id: workout.id,
+    date: workout.date,
+    category: workout.category,
+    exerciseCount: Number(workout.exercise_count),
+    totalSets: Number(workout.total_sets),
+    duration: workout.duration
+  }));
+};
 
