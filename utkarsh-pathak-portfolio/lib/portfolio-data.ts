@@ -12,7 +12,7 @@ export const portfolioData = {
       github: "https://github.com/utkarshpathak-03",
       email: "mailto:utkarshpathak03@gmail.com",
     },
-    resume: "https://drive.google.com/file/d/1_itNNToFYy4y5wyMfolZndcqul59TECd/view?usp=sharing",
+    resume: "https://drive.google.com/file/d/1Lu2nZpeaIpx-qdFMnT4MxDEtRlwnc0rW/view",
   },
 
   metrics: [
